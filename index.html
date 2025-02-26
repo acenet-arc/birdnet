@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BirdNET Config Generation Tool</title>
+    <link rel="stylesheet" href="vendor/bootstrap-5.3.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div class="d-flex justify-content-center p-5">
+        <img src="acenet-logo.svg" alt="ACENET: Accelerate Discovery" style="max-width: 200px;">
+    </div>
+    <div class="container m-auto" style="max-width: 800px;">
+        <div class="row">
+            <div class="col">
+                <h1>BirdNET Config Generation Tool</h1>
+            </div>
+        </div>
+
+        <div class="row my-1">
+            <div class="col">
+                <label for="recording_name">Name</label>
+                <input type="text" class="form-control" id="recording_name">
+            </div>
+        </div>
+
+        <div class="row my-1">
+            <div class="col">
+                <label for="recording_desc">Description</label>
+                <textarea rows="3" class="form-control" id="recording_desc"></textarea>
+            </div>
+        </div>
+
+        <div class="row my-1">
+            <div class="col">
+                <h2 class="pt-3">Recording Location</h2>
+                <small>Specify recording location by entering coordinates or clicking on the map below</small>
+            </div>
+        </div>
+
+        <div class="row my-1">
+            <div class="col">
+                <label for="recording_latitude">Latitude</label>
+                <input type="number" step="any" class="form-control" id="recording_latitude" min="-90" max="90"
+                    value="0">
+            </div>
+            <div class="col">
+                <label for="recording_longitude">Longitude</label>
+                <input type="number" step="any" class="form-control" id="recording_longitude" min="-180" max="180"
+                    value="0">
+            </div>
+        </div>
+
+        <div class="row my-1">
+            <div class="col">
+                <div id="map" style="height: 400px; width: 100%;"></div>
+            </div>
+        </div>
+
+        <div class="row my-1">
+            <div class="col">
+                <h2 class="pt-3">Species of Interest</h2>
+            </div>
+        </div>
+
+        <div class="row my-1">
+            <div class="col">
+                <button class="btn btn-primary"><i class="bi bi-plus"></i> Add</button>
+                <button class="btn btn-primary"><i class="bi bi-upload"></i> Upload List</button>
+                <button class="btn btn-primary">Clear</button>
+
+            </div>
+        </div>
+
+        <div class="row my-1">
+            <div class="col">
+                <ul class="list-group">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Morbi leo risus</li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row my-1">
+            <div class="col">
+                <h2 class="pt-3">Model Parameters</h2>
+            </div>
+        </div>
+
+        <div class="row my-1">
+            <div class="col-3">
+                <label for="model_accuracy_threshold">Certainty Threshold</label>
+                <div class="input-group">
+                    <input type="number" step="any" class="form-control" id="model_accuracy_threshold" min="0" max="100"
+                        value="50">
+                    <div class="input-group-append">
+                        <span class="input-group-text">%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3 mb-5">
+            <div class="col">
+                <button class="btn btn-primary" id="genconfigbutton">Generate Config</button>
+            </div>
+        </div>
+
+
+        <!-- Leaflet -->
+        <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+        <script src="vendor/leaflet/leaflet.js"></script>
+        <script src="map.js"></script>
+
+        <!-- Species Selector -->
+        <script src="species.js"></script>
+
+        <!-- Generate Config -->
+        <script src="generate-config.js"></script>
+    </div>
+    <script src="vendor/bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
